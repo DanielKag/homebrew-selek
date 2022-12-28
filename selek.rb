@@ -4,16 +4,17 @@
 class Selek < Formula
   desc 'Kube pods with fzf'
   homepage 'https://github.com/DanielKag/selek'
-  url 'https://github.com/DanielKag/selek/archive/refs/tags/v1.2.tar.gz'
-  sha256 '9695ddd56f9bd5159b6a3d11325faaa1da0b0962a5afc68e507e07dc0c6a350c'
+  url 'https://github.com/DanielKag/selek/archive/refs/tags/v1.3.tar.gz'
+  sha256 'dbf3a994d83dec82aee080d8ae4fae9147c59b1f9c84e13de8edb92acc73d94d'
   license 'MIT'
 
   # depends_on "cmake" => :build
   depends_on 'fzf'
+  depends_on 'jq'
 
   def install
     # Move everything under #{libexec}/
-    libexec.install Dir["*"]
+    libexec.install Dir["selek"]
 
     # Then write executables under #{bin}/
     bin.write_exec_script (libexec/"selek")
